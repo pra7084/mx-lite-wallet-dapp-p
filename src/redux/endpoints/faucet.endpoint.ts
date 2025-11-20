@@ -30,10 +30,14 @@ const faucetEndpoints = RootApi.injectEndpoints({
           ...getAxiosConfig(faucetSettingEndpoint),
           baseURL: getExtrasApi()
         });
+        console.log(faucetSettingEndpoint);
+        console.log(settingsData);
 
         if (settingsData.error) {
           return { error: settingsData.error as FetchBaseQueryError };
         }
+        console.log(settingsData.error);
+        console.log(settingsData.data);
 
         const { token, tokenAmount, amount, recaptchaBypass } =
           settingsData.data as FaucetSettingsType;
@@ -45,6 +49,7 @@ const faucetEndpoints = RootApi.injectEndpoints({
           showLastNonZeroDecimal: false,
           addCommas: true
         });
+        console.log(egldAmount);
 
         const faucetTokenList = `${egldAmount} ${egldLabel}`;
 
@@ -55,6 +60,7 @@ const faucetEndpoints = RootApi.injectEndpoints({
         const tokenData = await fetchWithBQ({
           ...getAxiosConfig(`/${TOKENS_ENDPOINT}/${token}`)
         });
+        console.log(tokenData);
 
         if (tokenData.error) {
           return { error: tokenData.error as FetchBaseQueryError };
@@ -69,6 +75,7 @@ const faucetEndpoints = RootApi.injectEndpoints({
           showLastNonZeroDecimal: true,
           addCommas: true
         });
+        console.log(denominatedTokenAmount);
 
         return {
           data: {

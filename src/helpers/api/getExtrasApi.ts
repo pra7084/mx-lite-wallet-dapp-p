@@ -1,7 +1,9 @@
-import { getCurrentNetwork } from './getCurrentNetwork';
+// import { getCurrentNetwork } from './getCurrentNetwork';
 
 export function getExtrasApi() {
-  const { extrasApi } = getCurrentNetwork();
+  // const { extrasApi } = getCurrentNetwork();
+    return 'http://localhost:3000';
 
-  return extrasApi;
+
+  // return extrasApi;
 }

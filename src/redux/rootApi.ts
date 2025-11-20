@@ -15,6 +15,7 @@ const axiosBaseQuery =
       validateStatus,
       withCredentials
     } = props;
+    console.log(props);
 
     try {
       const result = await axios({
@@ -26,6 +27,7 @@ const axiosBaseQuery =
         validateStatus,
         withCredentials
       });
+      console.log(result);
 
       if (result.data.error || !result.status.toString().startsWith('2')) {
         throw {
@@ -39,6 +41,7 @@ const axiosBaseQuery =
       return { data: result.data };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
+      console.log(err);
 
       return {
         error: {

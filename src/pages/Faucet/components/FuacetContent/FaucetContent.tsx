@@ -24,9 +24,12 @@ export const FaucetContent = () => {
       refreshAccount();
     }
   }, [isSuccess, fundsReceived, websocketEvent]);
+  console.log(settings);
+
 
   const handleRequestClick = async (captcha: string) => {
     const response = await getFunds(captcha);
+    console.log(response);
 
     if ('error' in response) {
       setRequestFailed(
@@ -62,7 +65,10 @@ export const FaucetContent = () => {
     return <FaucetError message={requestFailed} />;
   }
 
+  console.log(isSuccess);
+  console.log(fundsReceived);
   const showFaucetScreen = !fundsReceived && !isSuccess;
+
 
   return (
     <div ref={ref} className='flex flex-col flex-grow'>

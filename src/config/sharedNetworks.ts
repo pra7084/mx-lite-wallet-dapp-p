@@ -8,10 +8,13 @@ export const sharedNetorks: NetworkType[] = [
     name: 'Devnet',
     apiAddress: 'https://devnet-api.multiversx.com',
     gatewayUrl: '',
-    extrasApi: 'https://devnet-extras-api.multiversx.com',
+    extrasApi: 'http://localhost:3000',
+    // extrasApi: 'https://devnet-extras-api.multiversx.com',
     sampleAuthenticatedDomains: ['https://devnet-api.multiversx.com'],
     sovereignContractAddress: '',
-    walletAddress: 'https://devnet-wallet.multiversx.com'
+    walletAddress: 'https://devnet-wallet.multiversx.com',
+    faucet:true,
+    WEGLDid: ''
   },
   {
     default: false,
